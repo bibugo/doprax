@@ -1,0 +1,19 @@
+{
+	order reverse_proxy before map
+	admin off
+	auto_https off
+}
+:80 {
+	@wsvmess {
+		path /wsvmess
+		header Connection *Upgrade*
+		header Upgrade websocket
+	}
+	reverse_proxy @wsvmess http://127.0.0.1:10001
+	@wsvless {
+		path /wsvless
+		header Connection *Upgrade*
+		header Upgrade websocket
+	}
+	reverse_proxy @wsvless http://127.0.0.1:10002
+}
