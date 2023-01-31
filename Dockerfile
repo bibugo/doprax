@@ -13,6 +13,7 @@ RUN set -x \
     && wget -q -O /tmp/Xray-linux-64.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip \
     && unzip -d /usr/local/bin /tmp/Xray-linux-64.zip xray \
     && chmod +x /usr/local/bin/xray \
+    && rm -f /tmp/Xray-linux-64.zip \
     && mkdir /usr/local/share/xray \
     && wget -q -O /usr/local/share/xray/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat \
     && wget -q -O /usr/local/share/xray/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat \
